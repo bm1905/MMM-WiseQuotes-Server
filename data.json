@@ -1,0 +1,22 @@
+{
+    "quotes": [
+        {
+            "category": "Inspiration",
+            "quote": "This is a wise quote."
+        },
+        {
+            "category": "Inspiration",
+            "quote": "This is a wise quote."
+        },
+        {
+            "category": "Inspiration",
+            "quote": "This is a wise quote."
+        }
+    ],
+    "users": [
+        {
+            "username": "Test User",
+            "password": "Qwerty1"
+        }
+    ]
+}
