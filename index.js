@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors')
 const mongoose = require('mongoose');
 const path = require('path');
-const bodyParser = require('body-parser');
+var fs = require('fs');
+const https = require('https');
 
 const config = require('./config');
 const FakeDb = require('./fake-db');
@@ -26,6 +28,7 @@ mongoose.connect(config.DB_URI, {
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
@@ -46,6 +49,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const PORT = process.env.PORT || 3001;
+
+const httpsServer = https.createServer ({
+    key: fs.readFileSync(path.join(__dirname, 'certs', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem')),
+}, app);
 
 app.listen(PORT, function () {
     console.log('Server Started at PORT!', PORT);
