@@ -1,7 +1,7 @@
 // User Schema.
 
 // More attributes will be added. User controller should then be updated. 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
